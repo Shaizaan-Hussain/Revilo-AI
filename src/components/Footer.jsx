@@ -34,7 +34,8 @@ const Footer = () => {
         </div>
     </div>
     <p className="pt-4 text-center text-xs md:text-sm pb-5">
-        Copyright 2025 © <a href="www.linkedin.com/in/shaizaan-hussain21">Shaizan Hussain</a>. All Right Reserved.
+        Copyright 2025 © <a href="https://www.linkedin.com/in/shaizaan-hussain21" target="_blank">
+Shaizan Hussain</a>. All Right Reserved.
     </p>
 </footer>
   )
