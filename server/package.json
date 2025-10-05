@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@clerk/express": "^1.7.36",
+    "@napi-rs/canvas": "^0.1.80",
     "@neondatabase/serverless": "^1.0.2",
     "axios": "^1.12.2",
     "cloudinary": "^2.7.0",
@@ -21,7 +22,8 @@
     "express": "^5.1.0",
     "multer": "^2.0.2",
     "openai": "^6.1.0",
-    "pdf-parse": "^2.1.7"
+    "pdf-parse-fixed": "^1.1.1",
+    "pdfjs-dist": "^4.7.76"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"

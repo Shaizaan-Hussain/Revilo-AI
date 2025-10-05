@@ -4,9 +4,12 @@ import { clerkClient } from "@clerk/express";
 import axios from "axios";
 import {v2 as cloudinary} from 'cloudinary';
 import fs from 'fs';
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-const pdf = require("pdf-parse");
+// import { createRequire } from "module";
+// const require = createRequire(import.meta.url);
+// const pdf = require("pdf-parse");
+// import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.js";
+import pdf from "pdf-parse-fixed";
+
 
 
 
@@ -208,46 +211,98 @@ export const removeImageObject = async(req, res)=>{
 }
 
 //review resume using cloudinary api
-export const resumeReview = async(req, res)=>{
-    try {
-        const {userId} = req.auth();
-        const resume = req.file;
-        const plan = req.plan;
+// export const resumeReview = async(req, res)=>{
+//     try {
+//         const {userId} = req.auth();
+//         const resume = req.file;
+//         const plan = req.plan;
 
-        if( plan !== 'premium'){
-            return res.json({success:false, message: "This feature is available for premium subscription"})
-        }
+//         if( plan !== 'premium'){
+//             return res.json({success:false, message: "This feature is available for premium subscription"})
+//         }
 
-        if(resume.size > 5 * 1024 * 1024){
-            return res.json({success: false, message: 'Resume file size should be under 5MB.'})
-        }
+//         if(resume.size > 5 * 1024 * 1024){
+//             return res.json({success: false, message: 'Resume file size should be under 5MB.'})
+//         }
 
-        const dataBuffer = fs.readFileSync(resume.path);
-        const pdfData = await pdf(dataBuffer);
+//         const dataBuffer = fs.readFileSync(resume.path);
+//         const pdfData = await pdf(dataBuffer);
 
-        const prompt = `Rewiev the following resume and provide constructive feedback on its strengths, weakness, and areas for improvement. ResumeContent:\n\n${pdfData.text}`
+//         const prompt = `Rewiev the following resume and provide constructive feedback on its strengths, weakness, and areas for improvement. ResumeContent:\n\n${pdfData.text}`
 
-         const response = await AI.chat.completions.create({
-    model: "gemini-2.0-flash",
-    messages: [
-        {
-            role: "user",
-            content: prompt,
-        },
-    ],
-    temperature: 0.7,
-    max_tokens: 1000,
-});
+//          const response = await AI.chat.completions.create({
+//     model: "gemini-2.0-flash",
+//     messages: [
+//         {
+//             role: "user",
+//             content: prompt,
+//         },
+//     ],
+//     temperature: 0.7,
+//     max_tokens: 1000,
+// });
 
-    const content = response.choices[0].message.content
+//     const content = response.choices[0].message.content
 
-    await sql  `INSERT INTO creations (user_id, prompt, content, type)
-    VALUES(${userId}, 'Review the uploaded resume', ${content}, 'resume-review')`;
+//     await sql  `INSERT INTO creations (user_id, prompt, content, type)
+//     VALUES(${userId}, 'Review the uploaded resume', ${content}, 'resume-review')`;
 
-    res.json({success: true, content })
+//     res.json({success: true, content })
  
-    } catch (error) {
-        console.log(error.message)
-        res.json({success: false, message: error.message})
+//     } catch (error) {
+//         console.log(error.message)
+//         res.json({success: false, message: error.message})
+//     }
+// }
+
+export const resumeReview = async (req, res) => {
+  try {
+    const { userId } = req.auth();
+    const resume = req.file;
+    const plan = req.plan;
+
+    if (plan !== "premium") {
+      return res.json({
+        success: false,
+        message: "This feature is available for premium subscription",
+      });
     }
-}
+
+    if (resume.size > 5 * 1024 * 1024) {
+      return res.json({
+        success: false,
+        message: "Resume file size should be under 5MB.",
+      });
+    }
+
+    // Read PDF buffer
+    const dataBuffer = fs.readFileSync(resume.path);
+    const pdfData = await pdf(dataBuffer);
+
+    const prompt = `Review the following resume and provide constructive feedback on its strengths, weaknesses, and areas for improvement. ResumeContent:\n\n${pdfData.text}`;
+
+    const response = await AI.chat.completions.create({
+      model: "gemini-2.0-flash",
+      messages: [
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
+      temperature: 0.7,
+      max_tokens: 1000,
+    });
+
+    const content = response.choices[0].message.content;
+
+    await sql`
+      INSERT INTO creations (user_id, prompt, content, type)
+      VALUES(${userId}, 'Review the uploaded resume', ${content}, 'resume-review')
+    `;
+
+    res.json({ success: true, content });
+  } catch (error) {
+    console.error(error.message);
+    res.json({ success: false, message: error.message });
+  }
+};
