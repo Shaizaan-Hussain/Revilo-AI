@@ -8,9 +8,7 @@
     <img src="https://img.shields.io/badge/-Express-black?style=for-the-badge&logo=express&logoColor=white"/>
     <img src="https://img.shields.io/badge/-Node.js-black?style=for-the-badge&logo=node.js&logoColor=339933"/>
     <img src="https://img.shields.io/badge/-Clerk-black?style=for-the-badge&logo=clerk&logoColor=white"/>
-    <img src="https://img.shields.io/badge/-Gemini-black?style=for-the-badge&logo=google&logoColor=4285F4"/>
-    <br/>
-
+    <img src="https://img.shields.io/badge/-Gemini-black?style=for-the-badge&logo=google&logoColor=4285F4"/><br/>
     <img src="https://img.shields.io/badge/-Cloudinary-black?style=for-the-badge&logo=cloudinary&logoColor=blue"/>
     <img src="https://img.shields.io/badge/-Postgres(Neon)-black?style=for-the-badge&logo=postgresql&logoColor=336791"/>
     <img src="https://img.shields.io/badge/-Vercel-black?style=for-the-badge&logo=vercel&logoColor=white"/>
@@ -39,23 +37,23 @@ Additionally, it provides resume review and career insights, making it a versati
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
-- **[React](https://react.dev/)** – is a popular JavaScript library for building user interfaces. It enables developers to create fast, interactive, and scalable front-end applications using reusable components and a virtual DOM for efficient rendering. 
+- **[React](https://react.dev/)**  is a popular JavaScript library for building user interfaces. It enables developers to create fast, interactive, and scalable front-end applications using reusable components and a virtual DOM for efficient rendering. 
 
 - **[TailwindCSS](https://tailwindcss.com/)** is a utility-first CSS framework that allows developers to build custom, responsive designs quickly without leaving their HTML. It provides pre-defined classes for layout, typography, colors, and more.
 
-- **[Express](https://expressjs.com/)** – is a minimal and flexible Node.js web framework. It simplifies building robust APIs and backends by providing powerful middleware support, routing, and HTTP utility methods.
+- **[Express](https://expressjs.com/)**  is a minimal and flexible Node.js web framework. It simplifies building robust APIs and backends by providing powerful middleware support, routing, and HTTP utility methods.
 
-- **[Node.js](https://nodejs.org/)** – is a runtime environment for executing JavaScript outside the browser. It is widely used for building scalable server-side applications, real-time services, and APIs.
+- **[Node.js](https://nodejs.org/)**  is a runtime environment for executing JavaScript outside the browser. It is widely used for building scalable server-side applications, real-time services, and APIs.
 
-- **[Clerk](https://clerk.com/)** – provides authentication and user management solutions for modern applications. It supports email/password, social login, multi-factor authentication, and customizable UI components for secure identity management. 
+- **[Clerk](https://clerk.com/)**  provides authentication and user management solutions for modern applications. It supports email/password, social login, multi-factor authentication, and customizable UI components for secure identity management. 
 
-- **[Gemini](https://ai.google.dev/gemini-api/)** – is Google’s multimodal AI model offering advanced capabilities in text, code, and image processing. It enables intelligent features like content generation, analysis, and automation in applications. 
+- **[Gemini](https://ai.google.dev/gemini-api/)**  is Google’s multimodal AI model offering advanced capabilities in text, code, and image processing. It enables intelligent features like content generation, analysis, and automation in applications. 
 
-- **[Cloudinary](https://cloudinary.com/)** – is a cloud-based image and video management service. It offers media upload, transformation, optimization, and delivery at scale, making it ideal for modern apps needing dynamic media handling.  
+- **[Cloudinary](https://cloudinary.com/)**  is a cloud-based image and video management service. It offers media upload, transformation, optimization, and delivery at scale, making it ideal for modern apps needing dynamic media handling.  
 
-- **[Postgres (Neon)](https://neon.tech/)** – is a serverless Postgres database platform. It provides scalable, cost-efficient, and developer-friendly database solutions with features like branching, autoscaling, and built-in backups.  
+- **[Postgres (Neon)](https://neon.tech/)**  is a serverless Postgres database platform. It provides scalable, cost-efficient, and developer-friendly database solutions with features like branching, autoscaling, and built-in backups.  
 
-- **[Vercel](https://vercel.com/)** – is a cloud platform for deploying and scaling web applications. It provides seamless CI/CD, global edge infrastructure, and optimized hosting for frameworks like Next.js and React.
+- **[Vercel](https://vercel.com/)**  is a cloud platform for deploying and scaling web applications. It provides seamless CI/CD, global edge infrastructure, and optimized hosting for frameworks like Next.js and React.
 
 
 ## <a name="features">🔋 Features</a>
